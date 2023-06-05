@@ -14,3 +14,12 @@ const id = Symbol('Some new symbol');
 user[id] = 500;
 console.log(user);
 console.log(typeof id);
+
+//relation operator
+const obj = {
+    age: 22,
+    name: 'name',
+    gender: 'male'
+}
+
+console.log('name' in obj);
