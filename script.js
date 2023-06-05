@@ -1,25 +1,8 @@
-// alert(123123);
+// write function congratsIfMoreThan100(), that accept array of followers and display on page
+// using alert() function congrats, if you have more than 100 followers
 
-const bigInt = 9999999999999999n;
-console.log(bigInt);
-console.log(typeof bigInt);
-
-const user = {
-    id: 10,
-    age: 20,
-    height: 170,
+function congratsIfMoreThan100(followers) {
+    if (followers.length > 100) {
+        alert('Congrats!');
+    }
 }
-
-const id = Symbol('Some new symbol');
-user[id] = 500;
-console.log(user);
-console.log(typeof id);
-
-//relation operator
-const obj = {
-    age: 22,
-    name: 'name',
-    gender: 'male'
-}
-
-console.log('name' in obj);
