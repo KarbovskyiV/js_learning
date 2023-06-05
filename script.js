@@ -6,3 +6,14 @@ function congratsIfMoreThan100(followers) {
         alert('Congrats!');
     }
 }
+
+// write function, that accept array of number and brings each of them to the square
+
+function toSquare(num) {
+    for (let numElement of num) {
+        numElement *= numElement;
+        console.log(numElement);
+    }
+}
+
+toSquare([2, 4, 5, 6, 7, 8]);
