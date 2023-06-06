@@ -1,19 +1,42 @@
-// write function congratsIfMoreThan100(), that accept array of followers and display on page
-// using alert() function congrats, if you have more than 100 followers
+// write function, that accept array of object, go through it and add adjective
+// that describe external beauty of a person accordingly to their sex (beautiful, handsome)
 
-function congratsIfMoreThan100(followers) {
-    if (followers.length > 100) {
-        alert('Congrats!');
+const people = [
+    {
+        name: 'Ross',
+        sex: 'male',
+    },
+    {
+        name: 'Monica',
+        sex: 'female',
+    },
+    {
+        name: 'Chandler',
+        sex: 'male',
+    },
+    {
+        name: 'Phoebe',
+        sex: 'female',
+    },
+    {
+        name: 'Joey',
+        sex: 'male',
+    },
+    {
+        name: 'Rachel',
+        sex: 'female',
+    },
+]
+
+function addAdjectiveToName(array) {
+    for (const arrayElement of array) {
+        if (arrayElement.sex === 'male') {
+            arrayElement.name += ' handsome.';
+        } else if (arrayElement.sex === 'female') {
+            arrayElement.name += ' beautiful.';
+        }
     }
+    return array;
 }
 
-// write function, that accept array of number and brings each of them to the square
-
-function toSquare(num) {
-    for (let numElement of num) {
-        numElement *= numElement;
-        console.log(numElement);
-    }
-}
-
-toSquare([2, 4, 5, 6, 7, 8]);
+console.log(addAdjectiveToName(people));
