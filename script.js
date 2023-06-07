@@ -1,20 +1,21 @@
-// write a function, that accept 2 arguments: array of numbers and number.
-// Function return count of repeats of the number that we provide.
-// If number that we provide not fount, return text 'Даного числа в масиві немає!'.
+const button = document.querySelector('.input-container button');
+const input = document.querySelector('.input-container input');
+const list = document.querySelector('.todo-list');
 
-const numbers = [1, 3, 5, 7, 9, 1, 2, 8, 9, 1];
+button.addEventListener('click', () => {
+    const li = document.createElement('li');
+    li.className = 'todo-list-item';
+    li.innerText = input.value;
 
-function findCountRepeatOfNumber(numbersArr, number) {
-    let count = 0;
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerText = 'Delete';
 
-    for (const element of numbersArr) {
-        if (element === number) {
-            count++;
-        }
-    }
+    li.appendChild(deleteBtn);
+    list.appendChild(li);
 
-    return count > 0 ? count : 'Даного числа в масиві немає!';
-}
+    input.value = '';
 
-console.log(findCountRepeatOfNumber(numbers, 1));
-
+    deleteBtn.addEventListener('click', () => {
+        list.removeChild(li);
+    });
+});
