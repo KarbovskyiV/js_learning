@@ -1,27 +1,31 @@
-const obj1 = {
-    name: 'Name',
-    age: 27,
-    favouriteFood: {
-        sweet: 'chocolate',
-        salty: 'pizza',
+const arr1 = [
+    {
+        name: 'Name 1',
+        age: 18,
+        sayHello() {
+            console.log('hello');
+        },
     },
-    sayHello: function() {
-        console.log('hello');
-    } ,
-};
+    {
+        name: 'Name 2',
+        age: 21,
+    },
+    {
+        name: 'Name 3',
+        age: 25,
+    },
+]
 
-// Shallow cloning
-// const obj2 = { ...obj1};
-// const obj2 = Object.assign({}, obj1);
+// const arr2 = JSON.parse(JSON.stringify(arr1));
+const arr2 = _.cloneDeep(arr1);
 
-// Deep cloning without methods
-// const obj2 = JSON.parse(JSON.stringify(obj1));
+arr2.push({
+    name: 'Rick',
+    age: 30,
+});
 
-// Deep cloning and with methods
-// lodash_.cloneDeep(value)
+arr2[0].age = 45;
+arr2[0].name = 'Test';
 
-obj2.name = 'John';
-obj2.favouriteFood.sweet = 'caramel';
-
-console.log(obj1);
-console.log(obj2);
+console.log(arr1);
+console.log(arr2);
