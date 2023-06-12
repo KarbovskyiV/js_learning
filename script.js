@@ -1,9 +1,31 @@
-console.log(1);
-console.log(2);
+// Create http-request on jsonplaceholder, to take array from 100 posts.
+// Display as a stylised news list
 
-setTimeout(() => {
-    console.log('Hello from SetTimeout');
-});
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(data => {
+        const list = document.querySelector('.posts-list');
+        data.forEach((item, index) => {
+            // creating elements
+            const post = document.createElement('li');
+            const postIndex = document.createElement('span');
+            const postTitle = document.createElement('h4');
+            const postText = document.createElement('p');
+            const postReadMoreLink = document.createElement('a');
+            //adding classes
+            post.classList.add('posts-list-item');
+            postIndex.classList.add('post-index');
+            postTitle.classList.add('post-title');
+            postText.classList.add('post-text');
+            postReadMoreLink.classList.add('post-link');
+            // updating content
+            postIndex.innerHTML = index + 1;
+            postTitle.innerHTML = item.title;
+            postText.innerHTML = item.body;
+            postReadMoreLink.innerHTML = 'Read more';
+            // inserting item into the list
+            post.append(postIndex, postTitle, postText, postReadMoreLink);
+            list.appendChild(post);
+        });
+    });
 
-console.log(3);
-console.log(4);
